@@ -1,154 +1,49 @@
-# Philippines Location API
+# Philippines Location Class
 
-This is a RESTful API built with Node.js, Express.js, and TypeScript that allows you to locate places in the Philippines.
+A Node.js class for working with location data in the Philippines.
 
-## Features
+## Introduction
 
-- **Location Lookup:** Search for places in the Philippines using various parameters such as region, province, or province.
-<!-- - **Geocoding:** Convert addresses into latitude and longitude coordinates.
-- **Reverse Geocoding:** Retrieve the nearest known address for a given set of coordinates. -->
+This repository contains a Node.js class designed to assist developers in working with location data for places in the Philippines. Whether you need to manipulate or extract information about cities, towns, or regions, this class can simplify the process for you.
 
 ## Installation
 
-1. Clone the repository:
-2. Install dependencies `npm install`
-3. Start server `npm run dev`
+To use this class in your Node.js project, you can install it via npm:
 
-## How to use
-The API provides the following endpoints for locating places in the Philippines:
-
-### Get region in a philippines
-
-**Request:**
-    
-    GET /api
-
-**Examples:**
-
-    GET /api
-
-**Response:**
-
-```js
-[
-    {
-        "name": "REGION I (ILOCOS REGION)",
-        "reg_code": "01"
-    },
-    {
-        "name": "REGION II (CAGAYAN VALLEY)",
-        "reg_code": "02"
-    },
-    ...
+```bash
+npm install philippines-location-class
 ```
 
-### Get provinces in a region
+## Usage
+Here's a basic example of how to use the Philippines Location Class:
+```ts
+import PHLocation from '@jkrmarmol/node-ph-location';
 
-**Request:**
+const location = new PHLocation();
 
-    GET /api/:region
-
-**Examples:**
-
-    GET /api/13
-
-**Response:**
-
-```js
-  [
-    {
-        "name": "NCR, CITY OF MANILA, FIRST DISTRICT",
-        "reg_code": "13",
-        "prov_code": "1339"
-    },
-    {
-        "name": "CITY OF MANILA",
-        "reg_code": "13",
-        "prov_code": "1339"
-    },
-    {
-        "name": "NCR, SECOND DISTRICT",
-        "reg_code": "13",
-        "prov_code": "1374"
-    },
-    {
-        "name": "NCR, THIRD DISTRICT",
-        "reg_code": "13",
-        "prov_code": "1375"
-    },
-    ...
+location.getRegion('').getProvinces('').getMunicipality('').getBarangay('');
 ```
 
-### Get municipality in a provinces
+## Contributing
+If you'd like to contribute to this project, we welcome your contributions. To get started:
 
-**Request:**
+1. Fork the repository.
 
-    GET /api/:region/:province
+2. Create a new branch for your feature or bug fix:
 
-**Examples:**
+        git checkout -b feature/your-feature-name
 
-    GET /api/13/1374
+3. Implement your changes.
 
-**Response:**
+4. Create a pull request to the main branch of this repository.
 
-```js
-  [
-    {
-        "name": "CITY OF MANDALUYONG",
-        "prov_code": "1374",
-        "mun_code": "137401"
-    },
-    {
-        "name": "CITY OF MARIKINA",
-        "prov_code": "1374",
-        "mun_code": "137402"
-    },
-    {
-        "name": "CITY OF PASIG",
-        "prov_code": "1374",
-        "mun_code": "137403"
-    },
-    ...
-```
+5. Your contribution will be reviewed, and if it meets the project's guidelines, it will be merged.
 
-### Get barangay in a municipality
+Please review the [Contribution Guidelines](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62) for more details.
 
-**Request:**
+## License
+This project is licensed under the MIT License. You are free to use and modify it as needed.
 
-    GET /api/:region/:province/:municipality
+I hope you find the Philippines Location Class helpful for your location-based projects. If you have any questions or encounter issues, please don't hesitate to create an issue or contact me.
 
-**Examples:**
-
-    GET /api/13/1374/137402
-
-**Response:**
-
-```js
-  [
-    {
-        "name": "Barangka",
-        "mun_code": "137402"
-    },
-    {
-        "name": "Calumpang",
-        "mun_code": "137402"
-    },
-    {
-        "name": "Concepcion Uno",
-        "mun_code": "137402"
-    },
-    {
-        "name": "Malanday",
-        "mun_code": "137402"
-    },
-    ...
-```
-
-
-
-## Author
-**Kurt Russelle Marmol**
-
-GitHub: [@jkrmarmol](https://github.com/jkrmarmol)
-
-LinkedIn: [@jkrmarmol](https://www.linkedin.com/in/jkrmarmol/)
+Happy coding!
